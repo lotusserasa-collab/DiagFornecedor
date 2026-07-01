@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Serasa Experian — Comparativo de Solução | Vanderleia Monteiro</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#0B1240;
+    --purple:#5B2A86;
+    --violet:#8E4FD1;
+    --paper:#F6F5FB;
+    --charcoal:#2B2B38;
+    --amber:#C9923A;
+    --line:#E3DEF0;
+    --dotfill:#8E4FD1;
+    --white:#FFFFFF;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--charcoal);
+    font-family:'Inter',sans-serif;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3{font-family:'Space Grotesk',sans-serif; margin:0; color:var(--ink);}
+  .mono{font-family:'IBM Plex Mono',monospace;}
+  a{color:inherit;}
+  .wrap{max-width:1040px; margin:0 auto; padding:0 28px;}
+
+  /* TOPBAR */
+  .topbar{
+    position:sticky; top:0; z-index:50;
+    background:rgba(11,18,64,0.92);
+    backdrop-filter:blur(8px);
+    border-bottom:1px solid rgba(255,255,255,0.08);
+  }
+  .topbar-inner{
+    max-width:1040px; margin:0 auto; padding:14px 28px;
+    display:flex; align-items:center; justify-content:space-between;
+  }
+  .brand{color:#fff; font-weight:600; font-size:14px; letter-spacing:0.2px;}
+  .brand span{color:#C9A8F0;}
+  .tag-pill{
+    font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:0.06em;
+    color:#E9D9FF; border:1px solid rgba(233,217,255,0.35);
+    padding:5px 10px; border-radius:99px; text-transform:uppercase;
+  }
+
+  /* HERO */
+  .hero{
+    background:linear-gradient(160deg, var(--ink) 0%, #1A1656 45%, var(--purple) 100%);
+    color:#fff;
+    padding:72px 0 56px;
+    position:relative;
+    overflow:hidden;
+  }
+  .hero::after{
+    content:"";
+    position:absolute; right:-120px; top:-120px; width:400px; height:400px;
+    background:radial-gradient(circle, rgba(142,79,209,0.45), transparent 70%);
+  }
+  .eyebrow{
+    font-family:'IBM Plex Mono',monospace; font-size:12px; letter-spacing:0.12em;
+    color:#C9A8F0; text-transform:uppercase; margin-bottom:18px;
+    display:inline-block; border-bottom:1px solid rgba(201,168,240,0.4); padding-bottom:6px;
+  }
+  .hero h1{
+    font-size:clamp(30px, 4.4vw, 48px); color:#fff; font-weight:700; letter-spacing:-0.01em;
+    max-width:760px; position:relative; z-index:1;
+  }
+  .hero h1 em{color:#D9B66B; font-style:normal;}
+  .hero p.lead{
+    margin-top:18px; font-size:17px; color:#D9D3EE; max-width:560px; position:relative; z-index:1;
+  }
+  .hero-cta{margin-top:32px; display:flex; gap:14px; flex-wrap:wrap; position:relative; z-index:1;}
+
+  .btn{
+    display:inline-flex; align-items:center; gap:8px;
+    padding:13px 22px; border-radius:8px; font-weight:600; font-size:14.5px;
+    text-decoration:none; transition:transform .15s ease, box-shadow .15s ease;
+  }
+  .btn-primary{background:#25D366; color:#0B1240;}
+  .btn-primary:hover{transform:translateY(-1px); box-shadow:0 8px 20px rgba(37,211,102,0.25);}
+  .btn-secondary{background:transparent; color:#fff; border:1px solid rgba(255,255,255,0.35);}
+  .btn-secondary:hover{background:rgba(255,255,255,0.08);}
+  .btn-amber{background:var(--amber); color:#1A1240;}
+  .btn-amber:hover{transform:translateY(-1px); box-shadow:0 8px 20px rgba(201,146,58,0.3);}
+
+  /* SECTIONS */
+  section{padding:64px 0;}
+  .section-label{
+    font-family:'IBM Plex Mono',monospace; font-size:12px; letter-spacing:0.1em;
+    color:var(--purple); text-transform:uppercase; margin-bottom:10px;
+  }
+  .section-title{font-size:clamp(24px,3vw,32px); max-width:680px;}
+  .section-sub{color:#5C5A70; max-width:600px; margin-top:10px; font-size:15.5px;}
+
+  /* DIAGNOSTICO */
+  .diag{background:var(--white); border-top:1px solid var(--line); border-bottom:1px solid var(--line);}
+  .diag-grid{display:grid; grid-template-columns:1.1fr 0.9fr; gap:48px; align-items:center; margin-top:40px;}
+  .diag-svg{width:100%; height:auto; display:block;}
+  .diag-caption{font-size:13px; color:#8A8799; margin-top:14px; max-width:480px;}
+  .pain-list{list-style:none; margin:0; padding:0;}
+  .pain-list li{
+    display:flex; gap:14px; padding:16px 0; border-bottom:1px solid var(--line);
+  }
+  .pain-list li:last-child{border-bottom:none;}
+  .pain-num{
+    font-family:'IBM Plex Mono',monospace; color:var(--amber); font-weight:600; font-size:14px; flex-shrink:0; padding-top:2px;
+  }
+  .pain-list strong{display:block; color:var(--ink); font-size:15px; margin-bottom:3px;}
+  .pain-list span{font-size:14px; color:#5C5A70;}
+
+  /* SOLUCOES */
+  .sol-grid{display:grid; grid-template-columns:repeat(2,1fr); gap:20px; margin-top:40px;}
+  .sol-card{
+    background:var(--white); border:1px solid var(--line); border-radius:12px; padding:26px;
+    transition:border-color .15s ease, transform .15s ease;
+  }
+  .sol-card:hover{border-color:var(--violet); transform:translateY(-2px);}
+  .sol-tag{
+    font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--violet);
+    text-transform:uppercase; letter-spacing:0.08em; margin-bottom:10px; display:block;
+  }
+  .sol-card h3{font-size:17px; margin-bottom:8px;}
+  .sol-card p{font-size:14px; color:#5C5A70; margin:0;}
+  .sol-arrow{font-size:13px; color:#A89BC4; margin:14px 0; display:block;}
+
+  /* RESULTADOS */
+  .results{background:var(--ink); color:#fff;}
+  .results .section-label{color:#C9A8F0;}
+  .results .section-title{color:#fff;}
+  .results .section-sub{color:#B9B4D6;}
+  .result-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:20px; margin-top:40px;}
+  .result-card{
+    background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.1);
+    border-radius:12px; padding:26px;
+  }
+  .result-before-after{display:flex; align-items:baseline; gap:10px; margin-bottom:10px;}
+  .result-before{font-family:'IBM Plex Mono',monospace; color:#9089AE; font-size:15px; text-decoration:line-through;}
+  .result-after{font-family:'IBM Plex Mono',monospace; color:var(--amber); font-size:22px; font-weight:600;}
+  .result-card p{font-size:13.5px; color:#C8C3E0; margin:0;}
+
+  /* CTA FINAL */
+  .cta-final{
+    background:linear-gradient(135deg, var(--purple), var(--violet));
+    color:#fff; text-align:center; padding:64px 0;
+  }
+  .cta-final h2{color:#fff; font-size:clamp(24px,3.4vw,34px); max-width:600px; margin:0 auto;}
+  .cta-final p{color:#EAE0FA; margin-top:14px; max-width:480px; margin-left:auto; margin-right:auto;}
+  .cta-final .hero-cta{justify-content:center; margin-top:30px;}
+  .cta-final .btn-secondary{border-color:rgba(255,255,255,0.5);}
+
+  /* PARCEIRO AUTORIZADO */
+  .partner-block{
+    background:rgba(255,255,255,0.08);
+    border:1px solid rgba(255,255,255,0.18);
+    border-radius:14px;
+    padding:28px 32px;
+    margin:0 auto 36px;
+    max-width:680px;
+    text-align:left;
+  }
+  .partner-badge{
+    display:inline-flex; align-items:center; gap:8px;
+    font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:0.08em;
+    color:#1A1240; background:var(--amber);
+    padding:5px 12px; border-radius:99px; text-transform:uppercase; margin-bottom:14px;
+  }
+  .partner-block h3{
+    color:#fff; font-size:18px; margin-bottom:10px;
+  }
+  .partner-block p{
+    color:#EAE0FA; font-size:14.5px; margin:0 0 14px; max-width:600px;
+  }
+  .partner-grid{
+    display:grid; grid-template-columns:repeat(2,1fr); gap:10px 24px;
+    list-style:none; margin:0; padding:0;
+  }
+  .partner-grid li{
+    display:flex; gap:8px; font-size:13.5px; color:#EAE0FA; align-items:flex-start;
+  }
+  .partner-grid li::before{
+    content:"✓"; color:var(--amber); font-weight:700; flex-shrink:0;
+  }
+  @media (max-width:760px){
+    .partner-grid{grid-template-columns:1fr;}
+    .partner-block{padding:22px 22px;}
+  }
+
+  footer{
+    background:var(--ink); color:#9089AE; text-align:center; padding:28px 0; font-size:13px;
+    border-top:1px solid rgba(255,255,255,0.08);
+  }
+  footer strong{color:#D9D3EE;}
+
+  @media (max-width:760px){
+    .diag-grid, .sol-grid, .result-grid{grid-template-columns:1fr;}
+    .hero{padding:56px 0 40px;}
+    section{padding:48px 0;}
+  }
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="topbar-inner">
+    <div class="brand">Serasa <span>Experian</span> — Negócios</div>
+    <div class="tag-pill">Comparativo de Fornecedor</div>
+  </div>
+</div>
+
+<section class="hero">
+  <div class="wrap">
+    <span class="eyebrow">Diagnóstico de fornecedor — para quem já decide com dados de crédito</span>
+    <h1>Sua empresa já decide com base em dados de crédito. <em>A sua está na maior base do Brasil?</em></h1>
+    <p class="lead">Uma transição segura, sem impacto operacional, para a base de dados que mais empresas no Brasil usam como fonte de decisão de crédito.</p>
+    <div class="hero-cta">
+      <a class="btn btn-primary" href="https://wa.me/554130264001?text=Ol%C3%A1%20Vanderleia%2C%20vim%20pelo%20material%20comparativo%20de%20fornecedor%20e%20quero%20entender%20melhor%20as%20solu%C3%A7%C3%B5es%20Serasa%20Experian%20com%20a%20Vanderleia." target="_blank" rel="noopener">Falar no WhatsApp →</a>
+      <a class="btn btn-secondary" href="#cta">Ver como funciona</a>
+    </div>
+  </div>
+</section>
+
+<section class="diag">
+  <div class="wrap">
+    <span class="section-label">Diagnóstico</span>
+    <h2 class="section-title">Hoje a Serasa é a maior datatech do Brasil — e isso muda a qualidade da decisão que você toma.</h2>
+    <p class="section-sub">Mais de 70% do mercado utiliza a Serasa como fonte de negativação de clientes e consultas de crédito. Isso forma uma base mais densa e mais atualizada — o que reduz diretamente a chance de falso positivo na consulta, um problema recorrente em birôs de crédito menores.</p>
+
+    <div class="diag-grid">
+      <div>
+        <svg viewBox="0 0 400 280" xmlns="http://www.w3.org/2000/svg" class="diag-svg">
+          <circle cx="200" cy="130" r="108" fill="none" stroke="var(--line)" stroke-width="20"/>
+          <circle cx="200" cy="130" r="108" fill="none" stroke="var(--amber)" stroke-width="20"
+                  stroke-dasharray="679" stroke-dashoffset="204" stroke-linecap="round"
+                  transform="rotate(-90 200 130)"/>
+          <text x="200" y="120" text-anchor="middle" font-family="Space Grotesk" font-weight="700" font-size="52" fill="var(--ink)">70%+</text>
+          <text x="200" y="150" text-anchor="middle" font-family="IBM Plex Mono" font-size="12" fill="#8A8799">do mercado usa Serasa</text>
+          <text x="200" y="250" text-anchor="middle" font-family="Inter" font-size="13" fill="#5C5A70">como fonte de negativação e consulta de crédito</text>
+        </svg>
+        <p class="diag-caption">Quanto maior a base que alimenta a consulta, menor a chance de falso positivo — empresa idônea sendo recusada por dado desatualizado ou incompleto.</p>
+      </div>
+      <ul class="pain-list">
+        <li>
+          <span class="pain-num">01</span>
+          <div><strong>Maior base de dados do país</strong><span>Mais de 70% do mercado consulta e negativa pela Serasa — a base mais ampla e mais usada como referência de crédito no Brasil.</span></div>
+        </li>
+        <li>
+          <span class="pain-num">02</span>
+          <div><strong>Dados atualizados em tempo integral</strong><span>Informação de crédito atualizada em regime full time, não em lotes periódicos — decisão tomada sobre o cenário real, não defasado.</span></div>
+        </li>
+        <li>
+          <span class="pain-num">03</span>
+          <div><strong>Menos risco de falso positivo</strong><span>Base mais densa reduz a chance de recusar cliente bom por dado incompleto — problema recorrente em birôs menores.</span></div>
+        </li>
+        <li>
+          <span class="pain-num">04</span>
+          <div><strong>Transição sem impacto operacional</strong><span>Migração conduzida com plano estruturado, mantendo sua operação rodando normalmente do primeiro ao último dia.</span></div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <span class="section-label">Soluções Serasa Experian</span>
+    <h2 class="section-title">Uma transição estruturada — do diagnóstico da operação atual à virada de chave sem ruído.</h2>
+
+    <div class="sol-grid">
+      <div class="sol-card">
+        <span class="sol-tag">Diagnóstico</span>
+        <h3>Mapeamento do uso atual de dados</h3>
+        <p>Entendemos exatamente como sua empresa usa a solução atual hoje — quais consultas, quais integrações, qual volume — antes de propor qualquer mudança.</p>
+        <span class="sol-arrow">→ resolve o ponto 01</span>
+      </div>
+      <div class="sol-card">
+        <span class="sol-tag">Migração assistida</span>
+        <h3>Transição sem impacto operacional</h3>
+        <p>Plano de migração conduzido junto com sua equipe, com período de transição planejado para que a operação não pare nem perca histórico.</p>
+        <span class="sol-arrow">→ resolve o ponto 04</span>
+      </div>
+      <div class="sol-card">
+        <span class="sol-tag">Qualidade de dado</span>
+        <h3>Ganho direto em precisão de consulta</h3>
+        <p>Base mais ampla e atualizada em tempo integral — resultado imediato em menos falso positivo e mais segurança na decisão de crédito.</p>
+        <span class="sol-arrow">→ resolve o ponto 03</span>
+      </div>
+      <div class="sol-card">
+        <span class="sol-tag">Condições comerciais</span>
+        <h3>Proposta pensada para o seu cenário</h3>
+        <p>Se preferir, use o botão abaixo para nos enviar sua proposta ou fatura atual — analisamos com calma e te trazemos uma condição comercial pensada especificamente para a sua operação.</p>
+        <span class="sol-arrow">→ veja o botão abaixo</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="results">
+  <div class="wrap">
+    <span class="section-label">O que muda na prática</span>
+    <h2 class="section-title">Mesma rotina, base mais confiável.</h2>
+    <p class="section-sub">Direção do resultado esperado na migração para a base Serasa Experian.</p>
+
+    <div class="result-grid">
+      <div class="result-card">
+        <div class="result-before-after"><span class="result-before mono">parado</span><span class="result-after mono">contínuo</span></div>
+        <p>Funcionamento da operação durante o período de transição entre fornecedores.</p>
+      </div>
+      <div class="result-card">
+        <div class="result-before-after"><span class="result-before mono">periódico</span><span class="result-after mono">full time</span></div>
+        <p>Regime de atualização dos dados de crédito consultados.</p>
+      </div>
+      <div class="result-card">
+        <div class="result-before-after"><span class="result-before mono">recusa indevida</span><span class="result-after mono">decisão precisa</span></div>
+        <p>Resultado de uma consulta sobre uma empresa idônea, com base mais ampla por trás.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-final" id="cta">
+  <div class="wrap">
+    <h2>Quer ver como fica a migração para a sua operação?</h2>
+    <p>Te mostro, em 15 minutos, como funciona a transição e como ficam as condições comparadas ao que você tem hoje — sem enrolação.</p>
+
+    <div class="partner-block">
+      <span class="partner-badge">Parceiro Autorizado Serasa Experian</span>
+      <h3>Por que contratar pela Lotus do Brasil</h3>
+      <p>A Lotus do Brasil é parceira autorizada oficial da Serasa Experian há mais de 17 anos. Você acessa exatamente a mesma base de dados oficial, com a mesma validade jurídica e a mesma segurança — só que com um relacionamento mais próximo durante todo o processo.</p>
+      <ul class="partner-grid">
+        <li>Canal de atendimento dedicado, direto com quem te atende</li>
+        <li>Consultoria de negócios sem custo para mapear o perfil da sua empresa</li>
+        <li>Indicação da ferramenta certa para o seu volume e operação</li>
+        <li>Condições e descontos mais competitivos</li>
+        <li>Treinamento da equipe e suporte ágil na implementação</li>
+        <li>Atendimento humano, próximo e sob medida — do início ao uso contínuo</li>
+      </ul>
+    </div>
+
+    <div class="hero-cta">
+      <a class="btn btn-amber" href="https://wa.me/554130264001?text=Ol%C3%A1%20Vanderleia%2C%20vim%20pelo%20material%20comparativo%20de%20fornecedor%20e%20quero%20comparar%20condi%C3%A7%C3%B5es%20com%20a%20Vanderleia.%20Posso%20enviar%20minha%20fatura%2Fproposta%20atual%20por%20aqui%20mesmo%3F" target="_blank" rel="noopener">Quero comparar condições →</a>
+      <a class="btn btn-secondary" href="https://wa.me/554130264001?text=Ol%C3%A1%20Vanderleia%2C%20vim%20pelo%20material%20comparativo%20de%20fornecedor%20e%20quero%20agendar%20uma%20conversa%20com%20a%20Vanderleia." target="_blank" rel="noopener">Falar no WhatsApp →</a>
+      <a class="btn btn-secondary" href="mailto:vanderleia@lotusdobrasil.com.br?subject=Solu%C3%A7%C3%B5es%20Serasa%20Experian%20-%20Comparativo%20de%20Fornecedor">Enviar e-mail</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <strong>Vanderleia Monteiro</strong> · Negócios Serasa Experian · (41) 3026-4001 · vanderleia@lotusdobrasil.com.br
+</footer>
+
+</body>
+</html>
